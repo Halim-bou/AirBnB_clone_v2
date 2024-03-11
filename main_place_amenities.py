@@ -50,4 +50,3 @@ place_2.amenities.append(amenity_3)
 storage.save()
 
 print("OK")
-

@@ -45,6 +45,7 @@ def do_deploy(archive_path):
     print("New version deployed!")
     return True
 
+
 def deploy():
     """ This function calls do_pack and do_deploy
     """

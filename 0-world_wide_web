@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# This displays information about subdomains.
+
+sub_domain_list=("www" "lb-01" "web-01" "web-02")
+domain_name=$1
+
+dig_domain ()
+{
+    for sub_domain in "$@"; do
+        result=$(dig "$sub_domain.$domain_name" | grep -A1 'ANSWER SECTION:'| tail -1)
+        record=$(echo "$result" | awk '{print $4}')
+        ip=$(echo "$result" | awk '{print $5}')
+        finale_out="The subdomain $sub_domain is a $record record and points to $ip"
+        echo "$finale_out"
+    done
+}
+
+if [ -z "$2" ]; then
+    cuurent_sub_domain_list=("${sub_domain_list[@]}")
+else
+    cuurent_sub_domain_list=("$2")
+fi
+
+dig_domain "${cuurent_sub_domain_list[@]}"

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from web_flask import app
 
 

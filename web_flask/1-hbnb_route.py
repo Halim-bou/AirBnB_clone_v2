@@ -11,9 +11,10 @@ def hello():
     """print  string"""
     return "Hello HBNB!"
 
-@app.route('/hbnb', strict_slashes=Flase)
+
+@app.route('/hbnb')
 def hbnb():
-    """print hbnb"""
+    """print     hbnb"""
     return "HBNB"
 
 

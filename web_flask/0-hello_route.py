@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from flask import Flask
-"""..."""
+""" script to practice flask """
 
 app = Flask(__name__)
 
@@ -12,4 +12,4 @@ def hello():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)

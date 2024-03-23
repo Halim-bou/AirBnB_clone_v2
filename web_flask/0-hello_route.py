@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-from web_flask import app
+from flask import Flask
+"""..."""
+
+app = Flask(app)
 
 
 @app.route('/', strict_slashes=False)
 def hbnb():
+    """retur string"""
     return "Hello HBNB!"
 
 

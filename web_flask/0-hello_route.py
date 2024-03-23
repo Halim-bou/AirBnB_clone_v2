@@ -1,8 +1,4 @@
-from flask import Flask
-
-"""script that stats a Falsk web application"""
-
-app = Flask(__name__)
+from web_flask import app
 
 
 @app.route('/', strict_slashes=False)

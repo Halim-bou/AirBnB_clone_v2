@@ -32,9 +32,6 @@ class DBStorage:
 
     def reload(self):
         """ Create a Session """
-        from models.base_model import BaseModel
-        from models.city import City
-        from models.state import State
         Base.metadata.create_all(self.__engine)
         session_factory = sessionmaker(
             bind=self.__engine, expire_on_commit=False)
@@ -59,18 +56,18 @@ class DBStorage:
     def all(self, cls=None):
         """ Return a dictionary of instances """
         classes = {
-            "State": State,
-            "City": City,
-            "User": User,
-            "Place": Place,
-            "Review": Review,
-            "Amenity": Amenity,
-        }
-
+                "State": State,
+                "City": City,
+                "User": User,
+                "Place": Place,
+                "Review": Review,
+                "Amenity": Amenity,
+                }
         dictionary = {}
-
         if cls:
-            inst_class = classes[cls]
+            inst_class = classes[cls.__name__]
+            if isinstance(inst_class, str):
+                inst_class = classes[cls]
             for inst in self.__session.query(inst_class).all():
                 key = f"{inst_class.__name__}.{inst.id}"
                 dictionary[key] = inst
@@ -103,3 +100,9 @@ class DBStorage:
 
         self.__session.delete(wanted_row)
         self.__session.commit()
+
+    def close(self):
+        """
+        calling  close() on the class Session
+        """
+        self.__session.close()

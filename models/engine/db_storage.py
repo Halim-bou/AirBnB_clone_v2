@@ -65,9 +65,6 @@ class DBStorage:
                 }
         dictionary = {}
         if cls:
-            #inst_class = classes[cls.__name__]
-            #if isinstance(inst_class, str):
-               # inst_class = classes[cls]
             if isinstance(cls, str):
                 inst_class = classes.get(cls)
             else:

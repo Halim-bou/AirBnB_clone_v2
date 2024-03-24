@@ -10,8 +10,6 @@ class State(BaseModel, Base):
     """ State class """
     __tablename__ = "states"
     name = Column(String(128), nullable=False)
-    cities = relationship("City", backref='state',
-                          cascade="all, delete-orphan")
 
     if not environ.get('HBNB_TYPE_STORAGE') == "db":
         @property
@@ -22,3 +20,9 @@ class State(BaseModel, Base):
                     city in storage.all("City").items()
                     if city.state_id == self.id]
             return cities_list
+    else:
+        cities = relationship(
+                "City",
+                backref='state',
+                cascade="all, delete-orphan"
+                )

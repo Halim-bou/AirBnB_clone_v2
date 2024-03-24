@@ -65,9 +65,13 @@ class DBStorage:
                 }
         dictionary = {}
         if cls:
-            inst_class = classes[cls.__name__]
-            if isinstance(inst_class, str):
-                inst_class = classes[cls]
+            #inst_class = classes[cls.__name__]
+            #if isinstance(inst_class, str):
+               # inst_class = classes[cls]
+            if isinstance(cls, str):
+                inst_class = classes.get(cls)
+            else:
+                inst_class = cls
             for inst in self.__session.query(inst_class).all():
                 key = f"{inst_class.__name__}.{inst.id}"
                 dictionary[key] = inst

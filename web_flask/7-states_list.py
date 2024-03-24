@@ -4,7 +4,7 @@ from flask import Flask, render_template
 from models import storage
 from models.state import State
 
-app = Falsk(__name__)
+app = Flask(__name__)
 
 
 @app.teardown_appcontext
@@ -16,8 +16,8 @@ def teardown(exception):
 @app.route('/states_list', strict_slashes=False)
 def states():
     """ display file html with route"""
-    states = storage.all(State).value()
-    sorted_states = sorted(states, key=lambda state: state.name)
+    states = storage.all(State).values()
+    sorted_states = sorted(states, key=lambda x: x.name)
     return render_template('7-states_list.html', states=sorted_states)
 
 

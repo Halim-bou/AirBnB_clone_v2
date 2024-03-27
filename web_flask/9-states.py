@@ -74,14 +74,14 @@ def states(id=None):
     """ diplay states if id or if not"""
     if id:
         states = storage.all(State, id)
-        # id_present = True
+        id_present = True
     else:
-        states = storage.all(State).values()
-        # id_present = False
+        states = storage.all(State)
+        id_present = False
     return render_template(
             '9-states.html',
             states=states,
-            id=id
+            id_present=id_present
             )
 
 

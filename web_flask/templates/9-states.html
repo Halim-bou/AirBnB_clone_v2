@@ -6,7 +6,7 @@
 </HEAD>
 
 <BODY>
-    {% if states|length == 0 %}
+    {% if not states%}
     <H1>Not found!</H1>
     {% else %}
     	{% if id_present %}

@@ -22,8 +22,8 @@
 {% for place in places.values() %}
 <article>
     <div class="headline">
-        <h2>{{ place.name }}</h2>
-        <div class="price_by_night">{{place.price_by_night}}</div>
+        <h2>#{{ place.name }}</h2>
+        <div class="price_by_night">${{place.price_by_night}}</div>
     </div>
     <div class="information">
         <div class="max_guest">
@@ -39,9 +39,9 @@
             <p>{{ place.number_bathrooms }}</p>
         </div>
     </div>
-    <div class="user"><b>Owner</b>: {{ place.user }}</div>
+    <div class="user"><b>Owner</b>: {{ place.user.first_name}} {{place.user.last_name }}</div>
     <div class="description">
-        {{ place.description }}
+        {{ place.description |safe}}
     </div>
 </article>
 {% endfor %}

@@ -28,17 +28,18 @@ article {
 	display: flex;
 	flex-direction: row;
 	position: relative;
+	text-align: left;
 
-	height: 80px;	
+	min-height: 60px;	
 	width: 100%;
 }
 
 .price_by_night {
 	display: flex;
 	justify-content: center;
-	align-self: flex-end;
+	align-self: flex;
 
-	position: absolute;
+	position: relative;
 	right: 0;
 
 	line-height: 60px;

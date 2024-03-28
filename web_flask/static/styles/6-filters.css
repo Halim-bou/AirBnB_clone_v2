@@ -29,15 +29,18 @@
 }
 
 .popover {
+	position: relative;
 	list-style-type: none;
 	display: none;
 	background-color: #FAFAFA;
 	width: 100%;
+	z-index: 4;
+	float: left;
 	overflow-y: auto;
 	max-height: 300px;
 	margin-left: -1px;
-	margin-top: 8px;
-	padding: 25px 0px;
+	margin-top: -10px;
+	padding: 15px 0 30px 0px;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 }
@@ -50,6 +53,7 @@
 	display: inline-block;
 }
 
+
 ul {
 	list-style-type: none;
 	padding: 0px;
@@ -57,24 +61,24 @@ ul {
 }	
 
 h2 {
-	font-size: 16px;
-	padding-left: 30px;
+	/* font-size: 16px; */
+	padding-left: 10px;
 	margin: 0px;
 }
 
 h3 {
 	font-weight: 600;
-	margin-top: 12px;
-	margin-bottom: 5px;	
+	margin-top: 20px;
+	margin-bottom: 20px;	
 	padding-left: 45px;
 }
 
 h4 {
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: 400;
 	margin-top: 5px;
-	margin-bottom: 5px;
-	padding-left: 45px;
+	margin-bottom: 1px;
+	padding-left: 25px;
 }
 
 button {
@@ -94,5 +98,5 @@ button {
 }
 
 button:hover {
-	opacity: 90%;
+	opacity: 50%;
 }

@@ -1,0 +1,48 @@
+{% extends "8-index.html" %}
+<!-- state and cities block : -->
+{% block content1 %}
+{% for state_id, state in states.items()|sort(attribute='name') %}
+    <li><h2>{{ state.name }}</h2>
+	{% for city in state.cities|sort(attribute='name') %}
+    <ul>
+        <li><h4>{{ city.name}}</h4></li>
+    </ul>
+	{% endfor %}
+    </li>
+{% endfor %}
+{% endblock content1%}
+<!-- amenity block :  -->
+{% block content2 %}
+{% for amenity in amenities.values()|sort(attribute='name')%}
+    <li><h4>{{ amenity.name }}</h4></li>
+{% endfor %}
+{% endblock content2 %}
+<!-- place block : -->
+{% block content3 %}
+{% for place in places.values() %}
+<article>
+    <div class="headline">
+        <h2>{{ place.name }}</h2>
+        <div class="price_by_night">{{place.price_by_night}}</div>
+    </div>
+    <div class="information">
+        <div class="max_guest">
+            <div class="guest_icon"></div>
+            <p>{{ place.max_guest }}</p>
+        </div>
+        <div class="number_rooms">
+            <div class="bed_icon"></div>
+            <p>{{ place.number_rooms }}</p>
+        </div>
+         <div class="number_bathrooms">
+            <div class="bath_icon"></div>
+            <p>{{ place.number_bathrooms }}</p>
+        </div>
+    </div>
+    <div class="user"><b>Owner</b>: {{ place.user }}</div>
+    <div class="description">
+        {{ place.description }}
+    </div>
+</article>
+{% endfor %}
+{% endblock content3 %}
